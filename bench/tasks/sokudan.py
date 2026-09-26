@@ -14,7 +14,8 @@ Gold is the condition each message was generated from (label-conditioned generat
 qwen3:30b-a3b-instruct-2507), not a human judgment, so accuracy is agreement with that condition. bench_en rows
 also carry a blind LLM verifier's verdicts; the `verified` count goes into `meta`, it does not filter.
 The files are fetched at run time from the pinned commit and checked against their SHA-256, never vendored.
-Evaluation only: do not train on either set.
+Both sets are CC BY 4.0. They are meant for evaluation: the source asks that neither be used as training data
+(a request, not a licence term).
 
     python -m bench.run --model Qwen/Qwen3-8B --n 200 --calib 100 \
         --tasks sokudan_ja.department,sokudan_ja.urgency,sokudan_ja.churn
@@ -31,12 +32,11 @@ from typing import Any, Dict, List
 from anyjev.question import Question
 from bench.tasks.base import Task, register
 
-COMMIT = "e1bcfbb5884c43762d6f6ab6df5b78cc75746fb9"
+COMMIT = "788306c844866bef9f83c4865e5bb1cb3f73e334"
 URL = "https://raw.githubusercontent.com/hiroki-abe-58/sokudan/{commit}/data/{name}.jsonl"
 SHA256 = {"bench_ja": "08ed6d1d2c86a30eff4cd13ced6627210631c878526e478b2e7c6ad3d91f74f5",
           "bench_en": "dcf62c360ceef05d199efd5a96cf5838caff583d42e3ddf8797708659e2b51c0"}
-LICENSE = {"bench_ja": "CC-BY-4.0, evaluation only",
-           "bench_en": "not declared in the source (see THIRD_PARTY.md), evaluation only"}
+LICENSE = {"bench_ja": "CC-BY-4.0", "bench_en": "CC-BY-4.0"}
 
 # set -> (file, {question: (sokudan type, text, criteria)}), from sokudan/eval/bench_{ja,en}.py
 SETS: Dict[str, tuple] = {
