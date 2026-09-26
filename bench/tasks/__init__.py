@@ -4,4 +4,5 @@ from __future__ import annotations
 import bench.tasks.banking  # noqa: F401,E402
 import bench.tasks.newsgroups  # noqa: F401,E402
 import bench.tasks.prompt_injection  # noqa: F401,E402
+import bench.tasks.sokudan  # noqa: F401,E402
 from bench.tasks.base import TASKS, Task, get_task  # noqa: F401

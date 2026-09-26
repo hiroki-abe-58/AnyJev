@@ -37,6 +37,7 @@ carries only the shipped code and the result JSON a doc cites (`docs/migration_v
 - Bench: seven small open models (1.7B to 8B, six architectures) on all tasks. Results in `bench/results_small*/`, write-up in `docs/results_small_models.md`, README section added.
 - Packaging and CI: version 0.1.0; the `hf` extra requires `transformers>=4.53` (the L2 block loop uses `transformers.masking_utils`); CI lints `demo/` and `scripts/` as well (`ruff check anyjev bench tests demo scripts`).
 - Docs: `docs/method_v3.md` (the method end to end, three flow diagrams), the two diagrams in both READMEs (the fit-then-adapt loop, the deployment lifecycle), `ROADMAP.md` as a checkbox list with a definition of done per item, `docs/migration_v3.md`.
+- Bench: a Japanese slice, `bench/tasks/sokudan.py`. sokudan's bench_ja (300 Japanese support messages) and its English counterpart bench_en (290) as six tasks, one per question: a 4-way department choice, a 3-level urgency score and a churn noul, the same schemas in both languages, fetched from a pinned commit and hash-checked. No result rows yet. Tests on the fake backend in `tests/test_bench_sokudan.py`.
 
 ## 0.0.2
 
